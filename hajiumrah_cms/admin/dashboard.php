@@ -6,19 +6,37 @@ if (!isset($_SESSION['admin_id'])) {
 }
 require_once '../includes/config.php';
 
-// Hitung statistik
-$postCount = $pdo->query("SELECT COUNT(*) FROM posts")->fetchColumn();
-$categoryCount = $pdo->query("SELECT COUNT(*) FROM categories")->fetchColumn();
-$pageCount = $pdo->query("SELECT COUNT(*) FROM pages")->fetchColumn();
+// Ambil statistik dengan penanganan error (jika tabel belum ada)
+try {
+    $postCount = $pdo->query("SELECT COUNT(*) FROM posts")->fetchColumn();
+} catch (Exception $e) {
+    $postCount = 0;
+}
+
+try {
+    $categoryCount = $pdo->query("SELECT COUNT(*) FROM categories")->fetchColumn();
+} catch (Exception $e) {
+    $categoryCount = 0;
+}
+
+try {
+    $pageCount = $pdo->query("SELECT COUNT(*) FROM pages")->fetchColumn();
+} catch (Exception $e) {
+    $pageCount = 0;
+}
 
 // Ambil 5 posting terbaru
-$recentPosts = $pdo->query("
-    SELECT p.title, p.created_at, c.name AS category 
-    FROM posts p 
-    LEFT JOIN categories c ON p.category_id = c.id 
-    ORDER BY p.created_at DESC 
-    LIMIT 5
-")->fetchAll();
+try {
+    $recentPosts = $pdo->query("
+        SELECT p.title, p.created_at, c.name AS category 
+        FROM posts p 
+        LEFT JOIN categories c ON p.category_id = c.id 
+        ORDER BY p.created_at DESC 
+        LIMIT 5
+    ")->fetchAll();
+} catch (Exception $e) {
+    $recentPosts = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +53,12 @@ $recentPosts = $pdo->query("
             --hijau-muda: #28a745;
             --emas: #d4af37;
             --emas-gelap: #b8860b;
-            --abu-bg: #f8f9fa;
         }
         body {
             font-family: 'Segoe UI', sans-serif;
             background-color: #f5f9f5;
+            margin: 0;
+            padding: 0;
         }
         /* Sidebar */
         .sidebar {
@@ -48,6 +67,8 @@ $recentPosts = $pdo->query("
             position: fixed;
             width: 250px;
             z-index: 1000;
+            top: 0;
+            left: 0;
         }
         .sidebar .nav-link {
             color: rgba(255,255,255,0.85);
@@ -104,6 +125,7 @@ $recentPosts = $pdo->query("
             .sidebar .nav-link { text-align: center; padding: 15px 5px; }
             .sidebar .nav-link i { margin: 0; }
             .main-content { margin-left: 70px; }
+            .header-bar { padding: 15px; }
         }
     </style>
 </head>
@@ -111,10 +133,10 @@ $recentPosts = $pdo->query("
 
 <!-- Sidebar -->
 <div class="sidebar d-flex flex-column p-3">
-    <h4 class="text-white text-center py-3 fw-bold">
-        <i class="bi bi-book me-2"></i><span>Pelatihan Haji</span>
-    </h4>
-    <ul class="nav nav-pills flex-column">
+    <a href="../index.php" class="text-white text-decoration-none text-center mb-4">
+        <img src="../assets/img/logo-jttc.png" height="50" alt="JTTC Academy">
+    </a>
+    <ul class="nav nav-pills flex-column mt-3">
         <li class="nav-item">
             <a class="nav-link active" href="dashboard.php">
                 <i class="bi bi-speedometer2"></i> <span>Dashboard</span>
@@ -133,6 +155,11 @@ $recentPosts = $pdo->query("
         <li class="nav-item">
             <a class="nav-link" href="pages.php">
                 <i class="bi bi-file-earmark"></i> <span>Halaman</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="users.php">
+                <i class="bi bi-people"></i> <span>User</span>
             </a>
         </li>
         <li class="nav-item">
@@ -229,7 +256,7 @@ $recentPosts = $pdo->query("
                     <h6 class="mb-1"><?= htmlspecialchars($post['title']) ?></h6>
                     <small class="text-muted">
                         <i class="bi bi-calendar"></i> <?= date('d M Y', strtotime($post['created_at'])) ?> |
-                        <i class="bi bi-tag"></i> <?= $post['category'] ?? 'Umum' ?>
+                        <i class="bi bi-tag"></i> <?= htmlspecialchars($post['category'] ?? 'Umum') ?>
                     </small>
                 </div>
                 <?php endforeach; ?>

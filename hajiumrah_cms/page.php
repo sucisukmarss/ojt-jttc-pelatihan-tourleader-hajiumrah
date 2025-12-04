@@ -84,20 +84,23 @@ $page_description = !empty($page['meta_description']) ? $page['meta_description'
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(90deg, var(--hijau), #1e7e34);">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <!-- Navbar Brand dengan Logo Gambar -->
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.php">
-            <i class="bi bi-mosque me-2"></i>Pelatihan Haji & Umrah
+        <a class="navbar-brand fw-bold" href="index.php" style="color: #0a5f38;">
+            <a class="navbar-brand" href="index.php"><img src="assets/img/logo-jttc.png" alt="JTTC Academy" height="100"></a>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="page.php?slug=tentang">Tentang</a></li>
-                <li class="nav-item"><a class="nav-link" href="page.php?slug=syarat">Syarat & Ketentuan</a></li>
-                <li class="nav-item"><a class="nav-link active" href="page.php?slug=kontak">Kontak</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.php">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.php">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog/index.php">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.php">Kontak</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin/login.php" class="btn btn-warning btn-lg px-4 py-2 fw-bold" style="background: #d4af37; color: #0a5f38;">Login Admin!</a></li>
             </ul>
         </div>
     </div>
