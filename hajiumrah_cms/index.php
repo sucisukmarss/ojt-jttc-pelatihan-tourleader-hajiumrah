@@ -383,8 +383,8 @@ $siteDesc = $settings['site_description'] ?? 'Program pelatihan resmi untuk calo
             <div class="col-md-4 mb-4">
                 <h5><i class="bi bi-geo-alt me-2"></i>Kontak</h5>
                 <p>
-                    <?= nl2br(htmlspecialchars($settings['address'] ?? 'Jl. Contoh No. 123, Jakarta')) ?><br>
-                    📞 <?= htmlspecialchars($settings['phone'] ?? '+62 812-3456-7890') ?><br>
+                    <?= nl2br(htmlspecialchars($settings['address'] ?? 'Jl. Arimbi No.1, Kragilan, Sinduadi, Kec. Mlati, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284')) ?><br>
+                    📞 <?= htmlspecialchars($settings['phone'] ?? '+62 851-5757-5180') ?><br>
                     ✉️ <?= htmlspecialchars($settings['email'] ?? 'info@hajiumrah.test') ?>
                 </p>
             </div>
@@ -396,7 +396,10 @@ $siteDesc = $settings['site_description'] ?? 'Program pelatihan resmi untuk calo
                     <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
                 </div>
                 <div class="mt-3">
-                    <small><?= htmlspecialchars($settings['footer_text'] ?? '&copy; 2025 Pelatihan Haji & Umrah') ?></small>
+                    <small><?= htmlspecialchars($settings['footer_text'] ?? 'Copyright © 2025 Pelatihan Haji & Umrah') ?></small>
+                </div>
+                <div class="mt-3">
+                    <small><?= htmlspecialchars($settings['footer_text'] ?? 'Develop by RSS') ?></small>
                 </div>
             </div>
         </div>

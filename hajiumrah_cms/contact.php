@@ -226,7 +226,7 @@ $siteDesc = $settings['site_description'] ?? 'Program pelatihan resmi untuk calo
             <div class="col-lg-5">
                 <div class="bg-light p-4 rounded h-100">
                     <h5 class="fw-bold mb-3" style="color: #0a5f38;">Kantor Kami</h5>
-                    <p><i class="bi bi-geo-alt me-2"></i>Jl. Haji Agus Salim No. 45, Jakarta Pusat</p>
+                    <p><i class="bi bi-geo-alt me-2"></i>Jl. Arimbi No.1, Kragilan, Sinduadi, Kec. Mlati, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284</p>
                     <p><i class="bi bi-telephone me-2"></i>(021) 1234-5678</p>
                     <p><i class="bi bi-envelope me-2"></i>info@jttc-academy.id</p>
                     
@@ -237,7 +237,7 @@ $siteDesc = $settings['site_description'] ?? 'Program pelatihan resmi untuk calo
                     
                     <h5 class="fw-bold mt-4 mb-3" style="color: #0a5f38;">Lokasi Kami</h5>
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.420332788272!2d106.82513987486785!3d-6.175392193841076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e7a78e5d%3A0x6c2a4e3a7d6e8b0a!2sMonas!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.2267614356!2d110.3575613!3d-7.7657607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a584aadee8581%3A0xdc38230c1d928e5f!2sJTTC%20%7C%20Yogyakarta%20Tourism%20Training%20Center!5e0!3m2!1sen!2sid!4v1765177492403!5m2!1sen!2sid" 
                         width="100%" 
                         height="200" 
                         style="border:0; border-radius: 8px;" 
@@ -261,8 +261,8 @@ $siteDesc = $settings['site_description'] ?? 'Program pelatihan resmi untuk calo
             <div class="col-md-4 mb-4">
                 <h5><i class="bi bi-geo-alt me-2"></i>Kontak</h5>
                 <p>
-                    <?= nl2br(htmlspecialchars($settings['address'] ?? 'Jl. Contoh No. 123, Jakarta')) ?><br>
-                    📞 <?= htmlspecialchars($settings['phone'] ?? '+62 812-3456-7890') ?><br>
+                    <?= nl2br(htmlspecialchars($settings['address'] ?? 'Jl. Arimbi No.1, Kragilan, Sinduadi, Kec. Mlati, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284')) ?><br>
+                    📞 <?= htmlspecialchars($settings['phone'] ?? '+62 851-5757-5180') ?><br>
                     ✉️ <?= htmlspecialchars($settings['email'] ?? 'info@hajiumrah.test') ?>
                 </p>
             </div>
